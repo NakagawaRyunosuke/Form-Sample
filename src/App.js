@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import { Form} from "./components/Form"
+import { ChakraProvider, useToast } from "@chakra-ui/react"
+
 
 function App() {
+  const toast = useToast()
+
+  const showToast = (errorFlag) => {
+    if(errorFlag){
+      toast({
+        title: "送信失敗(;_;)",
+        description: "未記入の項目が存在します。",
+        duration: 2000,
+        id: 1,
+        isClosable: false,
+        status: "error"
+      })
+    }else{
+      toast({
+        title: "送信完了('u'd)",
+        description: "送信に成功しました。",
+        duration: 2000,
+        id: 2,
+        isClosable: false,
+        status: "success"
+      })
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='toast'></div>
+      <ChakraProvider>
+        <Form showToast={showToast} />
+      </ChakraProvider>
     </div>
   );
 }
