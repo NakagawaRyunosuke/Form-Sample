@@ -8,3 +8,6 @@
 - 簡易フォームなので、バリテーションは全ての項目が記入されているかのみ
 - バリテーションの結果によってトーストを出現させる
 - 今回は、学習したcreatePortalでのトースト作成は知識の獲得だけにとどめ、今後利用していくであろうChakra UIでトースト機能を実装した
+
+### URL
+https://nakagawaryunosuke.github.io/Form-Sample/
